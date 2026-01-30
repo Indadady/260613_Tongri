@@ -17,8 +17,8 @@
     
     <!-- 🌟 카카오톡/SNS 공유 시 보여질 썸네일 및 정보 설정 (Open Graph) -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="2026 통리초등학교 글로벌 영어 캠프 제안서 (비교안)">
-    <meta property="og:description" content="학습 집중형(바기오) vs 밸런스형(세부) 비교 분석 및 맞춤형 일정 제안">
+    <meta property="og:title" content="2026 통리초등학교 글로벌 영어 캠프 제안서 (통합안)">
+    <meta property="og:description" content="6박 8일 전체 로드맵 및 어학원 상세 정보 (바기오 CNS vs 세부 CELLA)">
     <meta property="og:image" content="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -47,9 +47,13 @@
         .option-btn { transition: all 0.3s; }
         .option-btn.active { transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
         
-        /* Timeline Styling */
-        .timeline-item::before { content: ''; position: absolute; left: 11px; top: 12px; bottom: -12px; width: 2px; background-color: #cbd5e1; }
-        .timeline-item:last-child::before { display: none; }
+        .academy-tab { transition: all 0.3s; }
+        .academy-tab.active { background-color: #ffffff; border-bottom: 2px solid #0ea5e9; color: #0ea5e9; font-weight: 700; }
+        
+        /* Table Styling for Weekly Schedule */
+        .schedule-table th { white-space: nowrap; }
+        .schedule-table td { vertical-align: middle; }
+        .schedule-table tr:hover { background-color: rgba(241, 245, 249, 0.5); }
         
         html { scroll-behavior: smooth; }
         .hover-zoom { transition: transform 0.3s ease; }
@@ -99,6 +103,29 @@
             transform: translate(-50%, -50%);
             z-index: 10;
         }
+
+        /* Roadmap Styling */
+        .roadmap-step { position: relative; }
+        .roadmap-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background: #e2e8f0;
+            z-index: 0;
+            transform: translateX(50%);
+        }
+        @media (max-width: 768px) {
+            .roadmap-step:not(:last-child)::after {
+                width: 2px;
+                height: 100%;
+                top: 50%;
+                left: 2rem;
+                transform: translate(0, 50%);
+            }
+        }
     </style>
 </head>
 <body class="antialiased bg-slate-50">
@@ -124,9 +151,10 @@
                 <!-- Desktop Nav -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4 text-sm font-medium">
-                        <a href="#home"        class="nav-link px-3 py-2 border-b-2 border-transparent active">소개</a>
                         <a href="#comparison"  class="nav-link px-3 py-2 border-b-2 border-transparent text-red-600 font-bold">★비교 분석</a>
-                        <a href="#curriculum"  class="nav-link px-3 py-2 border-b-2 border-transparent">교육과정</a>
+                        <a href="#overview"    class="nav-link px-3 py-2 border-b-2 border-transparent">전체일정</a>
+                        <a href="#academies"   class="nav-link px-3 py-2 border-b-2 border-transparent">어학원소개</a>
+                        <a href="#curriculum"  class="nav-link px-3 py-2 border-b-2 border-transparent">상세시간표</a>
                         <a href="#video"       class="nav-link px-3 py-2 border-b-2 border-transparent">현지영상</a>
                         <a href="#mynote"      class="nav-link px-3 py-2 border-b-2 border-transparent text-yellow-600 font-bold"><i class="fa-solid fa-pen-to-square"></i> MY 노트</a>
                     </div>
@@ -136,9 +164,10 @@
         <!-- Mobile Secondary Nav -->
         <div class="md:hidden overflow-x-auto whitespace-nowrap bg-slate-50 border-b border-slate-200">
             <div class="flex px-4 py-2 space-x-4 text-xs font-medium text-slate-600">
-                <a href="#home" class="block">홈</a>
                 <a href="#comparison" class="block text-red-600 font-bold">★비교</a>
-                <a href="#curriculum" class="block">교육과정</a>
+                <a href="#overview" class="block">전체일정</a>
+                <a href="#academies" class="block">어학원</a>
+                <a href="#curriculum" class="block">시간표</a>
                 <a href="#video" class="block">영상</a>
                 <a href="#mynote" class="block text-yellow-600 font-bold">★MY노트</a>
             </div>
@@ -182,7 +211,7 @@
             </div>
         </section>
 
-        <!-- Comparison Section (Key Request) -->
+        <!-- Comparison Section -->
         <section id="comparison" class="py-20 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
@@ -257,17 +286,215 @@
             </div>
         </section>
 
-        <!-- Dynamic Curriculum Section -->
+        <!-- [NEW] One-Glance Weekly Overview -->
+        <section id="overview" class="py-20 bg-slate-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <span class="text-indigo-600 font-bold tracking-wider uppercase">6 Nights 8 Days Roadmap</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2">6박 8일 전체 로드맵 (항공 포함)</h2>
+                    <p class="text-slate-500 mt-2">출국부터 귀국까지, 꽉 찬 일주일의 흐름을 한눈에 확인하세요.</p>
+                </div>
+
+                <div class="max-w-6xl mx-auto">
+                    <!-- Roadmap Visualization -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        
+                        <!-- Step 1: Start -->
+                        <div class="roadmap-step flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-white border-4 border-indigo-500 rounded-full flex items-center justify-center text-2xl shadow-lg z-10 mb-4">
+                                🛫
+                            </div>
+                            <h3 class="font-bold text-lg text-slate-800">1일차 (토)</h3>
+                            <p class="text-sm text-indigo-600 font-bold mb-2">출국 & 이동</p>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200 text-sm w-full">
+                                <ul class="text-left space-y-1 text-slate-600">
+                                    <li>• 인천공항 집결</li>
+                                    <li>• 필리핀(세부/클락) 도착</li>
+                                    <li>• 픽업 및 숙소 이동</li>
+                                    <li>• 휴식 및 취침</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Orientation -->
+                        <div class="roadmap-step flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-white border-4 border-indigo-500 rounded-full flex items-center justify-center text-2xl shadow-lg z-10 mb-4">
+                                📝
+                            </div>
+                            <h3 class="font-bold text-lg text-slate-800">2일차 (일)</h3>
+                            <p class="text-sm text-indigo-600 font-bold mb-2">적응 & 오리엔테이션</p>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200 text-sm w-full">
+                                <ul class="text-left space-y-1 text-slate-600">
+                                    <li>• 오전 충분한 휴식</li>
+                                    <li>• <strong>레벨 테스트</strong> 진행</li>
+                                    <li>• 생필품 쇼핑 (SM몰 등)</li>
+                                    <li>• 안전 교육 및 OT</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Intensive Week -->
+                        <div class="roadmap-step flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-white border-4 border-indigo-500 rounded-full flex items-center justify-center text-2xl shadow-lg z-10 mb-4">
+                                🏫
+                            </div>
+                            <h3 class="font-bold text-lg text-slate-800">3~7일차 (월~금)</h3>
+                            <p class="text-sm text-indigo-600 font-bold mb-2">집중 수업 & 체험</p>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200 text-sm w-full">
+                                <ul class="text-left space-y-1 text-slate-600">
+                                    <li>• <strong>오전/오후 정규수업</strong></li>
+                                    <li>• 1:1 집중 레슨</li>
+                                    <li>• 현지 문화 체험 (오후)</li>
+                                    <li>• 수료식 (금요일)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Return -->
+                        <div class="roadmap-step flex flex-col items-center text-center">
+                            <div class="w-16 h-16 bg-white border-4 border-indigo-500 rounded-full flex items-center justify-center text-2xl shadow-lg z-10 mb-4">
+                                🏠
+                            </div>
+                            <h3 class="font-bold text-lg text-slate-800">8일차 (토)</h3>
+                            <p class="text-sm text-indigo-600 font-bold mb-2">귀국 & 휴식</p>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200 text-sm w-full">
+                                <ul class="text-left space-y-1 text-slate-600">
+                                    <li>• 공항 이동 및 수속</li>
+                                    <li>• 인천공항 도착</li>
+                                    <li>• 귀가 후 휴식</li>
+                                    <li>• 월요일 등교 준비 완료</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [NEW] Academy Introduction Section -->
+        <section id="academies" class="py-20 bg-white border-t">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <span class="text-slate-500 font-bold tracking-wider uppercase">Academy Details</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2">어학원 상세 정보</h2>
+                    <p class="text-slate-500 mt-2">두 어학원의 특징을 비교하고, 하단의 영상으로 생생한 현장을 확인하세요.</p>
+                </div>
+
+                <!-- Academy Tabs -->
+                <div class="max-w-6xl mx-auto bg-slate-100 p-2 rounded-t-xl flex">
+                    <button class="academy-tab flex-1 py-3 text-center rounded-lg active" onclick="showAcademy('cns')">
+                        <i class="fa-solid fa-tree mr-2"></i>바기오 CNS 어학원
+                    </button>
+                    <button class="academy-tab flex-1 py-3 text-center rounded-lg text-slate-500 hover:bg-white/50 hover:text-sky-600" onclick="showAcademy('cella')">
+                        <i class="fa-solid fa-water mr-2"></i>세부 CELLA 어학원
+                    </button>
+                </div>
+
+                <!-- Academy Content Container -->
+                <div class="max-w-6xl mx-auto bg-white border border-t-0 border-slate-200 rounded-b-xl shadow-lg p-6 md:p-10 min-h-[500px]">
+                    
+                    <!-- Content: CNS -->
+                    <div id="content-cns" class="animate-fade-in block">
+                        <div class="flex items-center gap-3 mb-6">
+                            <h3 class="text-2xl font-bold text-green-700">CNS International Language School</h3>
+                            <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded font-bold">Baguio City</span>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-4 text-slate-700">
+                                <div class="bg-slate-50 p-4 rounded-lg">
+                                    <h4 class="font-bold text-lg mb-2"><i class="fa-solid fa-circle-check text-green-500 mr-2"></i>핵심 개요</h4>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li><strong>위치:</strong> 필리핀 바기오 시티 (교육도시, 쾌적한 고산지대)</li>
+                                        <li><strong>운영 형태:</strong> 소수정예 (정원 40~60명), 맞춤형 관리 시스템</li>
+                                        <li><strong>특징:</strong> 오랜 전통의 주니어 캠프, 성인/가족 연수 운영</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2"><i class="fa-solid fa-book text-green-500 mr-2"></i>프로그램 & 커리큘럼</h4>
+                                    <p class="text-sm mb-2">초등~고등학생 대상 집중 영어 프로그램으로, 면학 분위기가 잡혀있습니다.</p>
+                                    <ul class="list-disc list-inside space-y-1 text-sm bg-slate-50 p-4 rounded-lg">
+                                        <li><strong>1:1 수업:</strong> Reading, Speaking, Grammar, Writing 집중</li>
+                                        <li><strong>선택 수업:</strong> 토플 주니어, 국제학교 준비반 등</li>
+                                        <li><strong>생활 관리:</strong> 도서관 자율학습, 한식 제공, 기숙사형 숙소</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <!-- UPDATED IMAGE: Baguio -->
+                                <img src="https://tse4.mm.bing.net/th/id/OIP.Nb9iHS85TW3M7jsR8uwgswHaFj?w=474&h=379&c=7&p=0" alt="Baguio View" class="rounded-xl shadow-md w-full h-48 object-cover">
+                                <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                                    <h4 class="font-bold text-green-800 mb-1">📢 바기오 교육 도시 특징</h4>
+                                    <p class="text-sm text-green-700">연중 서늘한 기온으로 에어컨 없이도 쾌적하며, 유해 시설이 적어 학습에만 온전히 집중할 수 있는 환경입니다.</p>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <a href="#video" class="inline-flex items-center text-green-600 hover:text-green-800 font-bold underline">
+                                        <i class="fa-solid fa-video mr-2"></i>아래에서 CNS 어학원 영상 확인하기
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content: CELLA -->
+                    <div id="content-cella" class="hidden animate-fade-in">
+                        <div class="flex items-center gap-3 mb-6">
+                            <h3 class="text-2xl font-bold text-sky-700">CELLA English Academy</h3>
+                            <span class="bg-sky-100 text-sky-700 text-xs px-2 py-1 rounded font-bold">Cebu City</span>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-4 text-slate-700">
+                                <div class="bg-slate-50 p-4 rounded-lg">
+                                    <h4 class="font-bold text-lg mb-2"><i class="fa-solid fa-circle-check text-sky-500 mr-2"></i>핵심 개요</h4>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li><strong>위치:</strong> 세부 바닐라드 / 탈람반 (시내 중심 접근성 우수)</li>
+                                        <li><strong>인증:</strong> TESDA & SSP 정식 교육기관 (2006년 설립)</li>
+                                        <li><strong>특징:</strong> 프리미엄 캠퍼스 + 유니 캠퍼스 운영, 리조트형 시설</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2"><i class="fa-solid fa-book text-sky-500 mr-2"></i>코스 & 커리큘럼</h4>
+                                    <p class="text-sm mb-2">초급부터 고급까지, 특히 Speaking 실력 향상에 최적화된 커리큘럼을 제공합니다.</p>
+                                    <ul class="list-disc list-inside space-y-1 text-sm bg-slate-50 p-4 rounded-lg">
+                                        <li><strong>Power Speaking:</strong> 1:1 수업 비중 높음, 회화 집중</li>
+                                        <li><strong>특화 과정:</strong> IELTS, TESOL, ACE(승무원 영어) 등 다양</li>
+                                        <li><strong>시설:</strong> 수영장, 콘도형 기숙사, 주변 편의시설 완비</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <!-- UPDATED IMAGE: Cebu -->
+                                <img src="https://tse1.mm.bing.net/th/id/OIP.vd8S48rKv2xLgyKDNG8eAwHaEc?w=474&h=379&c=7&p=0" alt="Cebu Resort View" class="rounded-xl shadow-md w-full h-48 object-cover">
+                                <div class="bg-sky-50 p-4 rounded-lg border border-sky-200">
+                                    <h4 class="font-bold text-sky-800 mb-1">📢 CELLA 추천 포인트</h4>
+                                    <p class="text-sm text-sky-700">학습과 휴양의 밸런스가 완벽하며, 다국적 학생들과 교류할 수 있는 환경입니다. 가족 연수 프로그램으로도 인기가 높습니다.</p>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <a href="#video" class="inline-flex items-center text-sky-600 hover:text-sky-800 font-bold underline">
+                                        <i class="fa-solid fa-video mr-2"></i>아래에서 CELLA 어학원 영상 확인하기
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Weekly Schedule Section (UPDATED) -->
         <section id="curriculum" class="py-20 bg-slate-50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-10">
-                    <span class="text-blue-600 font-bold tracking-wider uppercase">Daily Schedule & Curriculum</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-2">일일 일정 미리보기</h2>
-                    <p class="text-slate-500 mt-2">아래 버튼을 클릭하여 어학원별 하루 일과를 확인하세요.</p>
+                    <span class="text-blue-600 font-bold tracking-wider uppercase">Detail Schedule</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2">일일 상세 시간표</h2>
+                    <p class="text-slate-500 mt-2">버튼을 클릭하여 각 어학원의 실제 하루 일과를 비교해보세요.</p>
                 </div>
 
                 <!-- Option Switcher -->
-                <div class="flex justify-center gap-4 mb-10">
+                <div class="flex justify-center gap-4 mb-8">
                     <button onclick="switchSchedule('baguio')" id="btn-baguio" class="option-btn px-6 py-3 rounded-full bg-white border-2 border-slate-300 text-slate-500 font-bold text-lg hover:border-green-500 hover:text-green-600 flex items-center gap-2">
                         <i class="fa-solid fa-tree"></i> Option A: 바기오 CNS
                     </button>
@@ -277,13 +504,13 @@
                 </div>
 
                 <!-- Alert Message -->
-                <div class="max-w-4xl mx-auto my-6 custom-alert p-5 rounded-lg shadow-sm flex items-start animate-fade-in-up">
-                    <div class="text-sky-600 text-xl mr-4 flex-shrink-0 mt-1">
+                <div class="max-w-5xl mx-auto mb-6 custom-alert p-4 rounded-lg shadow-sm flex items-start animate-fade-in-up">
+                    <div class="text-sky-600 text-xl mr-3 flex-shrink-0 mt-0.5">
                         <i class="fa-solid fa-circle-info"></i>
                     </div>
                     <div>
-                        <h4 class="font-bold text-sky-800 text-lg">맞춤형 일정 안내</h4>
-                        <p class="text-slate-700 text-sm mt-1 leading-relaxed">
+                        <h4 class="font-bold text-sky-800 text-sm md:text-base">맞춤형 일정 안내</h4>
+                        <p class="text-slate-700 text-xs md:text-sm mt-1 leading-relaxed">
                             본 일정은 제안용 초안입니다. 학교 및 학부모님, 학생들의 요청사항을 수렴하여 
                             <strong class="bg-yellow-200 px-1 rounded">액티비티 추가 및 문화 체험 확대</strong> 등 원하시는 방향을 
                             <strong class="text-sky-700">현지 사정에 맞춰 최대한 반영</strong>하여 진행하겠습니다.
@@ -291,20 +518,30 @@
                     </div>
                 </div>
 
-                <!-- Schedule Display Area -->
-                <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
-                    <div class="p-6 md:p-8">
-                        <h3 id="schedule-title" class="text-2xl font-bold text-slate-800 mb-6 border-b pb-4">
-                            세부 CELLA 어학원 표준 일과
+                <!-- Table Container -->
+                <div class="max-w-6xl mx-auto bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden">
+                    <div class="p-4 md:p-6 bg-slate-50 border-b flex justify-between items-center">
+                        <h3 id="schedule-title" class="text-xl md:text-2xl font-bold text-slate-800">
+                            세부 CELLA 주간 스케줄
                         </h3>
-                        
-                        <!-- Timeline Content (Dynamic) -->
-                        <div id="schedule-timeline" class="space-y-0">
-                            <!-- JS will inject content here -->
-                        </div>
+                        <span class="text-xs text-slate-500 bg-white px-2 py-1 rounded border">* 모바일에서는 좌우로 스크롤하여 확인하세요</span>
                     </div>
-                    <div class="bg-slate-50 px-6 py-4 border-t text-right text-xs text-slate-400">
-                        * 현지 상황에 따라 세부 시간은 변동될 수 있습니다.
+                    
+                    <!-- Scrollable Table Wrapper -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse schedule-table min-w-[800px]">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-600 text-sm uppercase tracking-wider">
+                                    <th class="p-4 border-b w-1/6">Time</th>
+                                    <th class="p-4 border-b w-1/6">Lesson / Class</th>
+                                    <th class="p-4 border-b w-2/6">평일 (월~금)</th>
+                                    <th class="p-4 border-b w-2/6 bg-slate-200">주말 (토/일)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="schedule-body" class="text-sm md:text-base text-slate-700">
+                                <!-- JS Injects Rows Here -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -437,54 +674,59 @@
 
     <!-- JavaScript Logic -->
     <script>
-        // Data Objects for Schedules (Extracted from Images)
+        // Data Objects for Schedules (Table Format)
         const schedules = {
             cebu: {
-                title: "세부 CELLA 어학원 표준 일과 (밸런스형)",
-                colorClass: "bg-sky-100 text-sky-800",
-                iconColor: "text-sky-600",
-                items: [
-                    { time: "07:00 ~ 08:00", activity: "기상 및 아침식사 (뷔페식)", desc: "규칙적인 아침 습관 형성" },
-                    { time: "08:00 ~ 08:45", activity: "1교시: 1:1 GRAMMAR", desc: "개인별 문법 약점 집중 보완" },
-                    { time: "08:50 ~ 09:35", activity: "2교시: Group Creative Speaking", desc: "창의적 말하기 그룹 활동" },
-                    { time: "09:40 ~ 10:25", activity: "3교시: SELF-STUDY", desc: "자기주도 학습 및 과제" },
-                    { time: "10:30 ~ 11:15", activity: "4교시: 1:1 LISTENING", desc: "원어민 발음 및 청취 집중 훈련" },
-                    { time: "11:20 ~ 12:05", activity: "5교시: Group Reading", desc: "독해 능력 향상 그룹 수업" },
-                    { time: "12:05 ~ 13:05", activity: "점심식사 (Lunch)", desc: "영양 균형을 맞춘 식단" },
-                    { time: "13:05 ~ 13:50", activity: "6교시: 1:1 WRITING", desc: "영어 일기 및 에세이 첨삭" },
-                    { time: "13:55 ~ 14:40", activity: "7교시: 1:1 SPEAKING", desc: "자유로운 주제로 회화 실력 향상" },
-                    { time: "14:45 ~ 16:20", activity: "8~9교시: Group P.E & Activity", desc: "수영, 탁구, 줄넘기 등 체육 활동 (리조트 시설 이용)" },
-                    { time: "16:25 ~ 17:10", activity: "10교시: Group Use of English", desc: "실생활 영어 표현 익히기" },
-                    { time: "17:15 ~ 18:00", activity: "11교시: Group Vocabulary", desc: "필수 단어 암기 및 테스트" },
-                    { time: "18:00 ~ 19:00", activity: "저녁식사 (Dinner)", desc: "즐거운 저녁 시간" },
-                    { time: "19:00 ~ 20:35", activity: "야간 학습 (칸아카데미/듀오링고)", desc: "스마트 기기를 활용한 보충 학습" }
+                title: "세부 CELLA 어학원 주간 일정 (밸런스형)",
+                headerColor: "text-sky-800",
+                rows: [
+                    { time: "07:00 ~ 08:00", lesson: "Breakfast", weekday: "기상 및 아침식사 (뷔페식)", weekend: "기상 및 아침식사 (주말 브런치 10:30~)" },
+                    { time: "08:00 ~ 08:45", lesson: "1교시", weekday: "1:1 GRAMMAR", weekend: "-" },
+                    { time: "08:50 ~ 09:35", lesson: "2교시", weekday: "Group Creative Speaking", weekend: "단어 외우기 / 휴식" },
+                    { time: "09:40 ~ 10:25", lesson: "3교시", weekday: "SELF-STUDY", weekend: "단어 외우기 / 휴식" },
+                    { time: "10:30 ~ 11:15", lesson: "4교시", weekday: "1:1 LISTENING", weekend: "브런치 식사" },
+                    { time: "11:20 ~ 12:05", lesson: "5교시", weekday: "Group Reading Comprehension", weekend: "수영, 마사지 등 자유시간" },
+                    { time: "12:05 ~ 13:05", lesson: "Lunch", weekday: "점심식사", weekend: "수영, 마사지 등 자유시간" },
+                    { time: "13:05 ~ 13:50", lesson: "6교시", weekday: "1:1 WRITING", weekend: "Animation Movie English / 영화관람" },
+                    { time: "13:55 ~ 14:40", lesson: "7교시", weekday: "1:1 SPEAKING", weekend: "Weekend Activity (야외활동)" },
+                    { time: "14:45 ~ 15:30", lesson: "8교시", weekday: "Group P.E (수영,탁구,줄넘기)", weekend: "영화 수업 1 / Activity" },
+                    { time: "15:35 ~ 16:20", lesson: "9교시", weekday: "Group P.E (수영,탁구,줄넘기)", weekend: "영화 수업 2 / Activity" },
+                    { time: "16:25 ~ 17:10", lesson: "10교시", weekday: "Group Use of English", weekend: "간식 및 조별 토론" },
+                    { time: "17:15 ~ 18:00", lesson: "11교시", weekday: "Group Vocabulary", weekend: "저녁식사 (주말 17:00~)" },
+                    { time: "18:00 ~ 19:00", lesson: "Dinner", weekday: "저녁식사", weekend: "개인시간 / 주간 어휘력 향상 시험" },
+                    { time: "19:00 ~ 19:45", lesson: "12교시", weekday: "칸 아카데미 (수학)", weekend: "-" },
+                    { time: "19:50 ~ 20:35", lesson: "13교시", weekday: "듀오링고 (영어)", weekend: "-" },
+                    { time: "21:00 ~ 22:00", lesson: "Sleep", weekday: "영어일기 작성 후 샤워 & 취침", weekend: "영어일기 작성 후 샤워 & 취침" }
                 ]
             },
             baguio: {
-                title: "바기오 CNS 어학원 표준 일과 (학습 집중형)",
-                colorClass: "bg-green-100 text-green-800",
-                iconColor: "text-green-600",
-                items: [
-                    { time: "07:00 ~ 08:00", activity: "기상, 아침체조, 아침식사", desc: "상쾌한 아침 시작 및 수업 준비" },
-                    { time: "08:00 ~ 09:40", activity: "오전 집중 수업 (1:1 수업)", desc: "원어민 강사와 1:1 집중 수업 진행" },
-                    { time: "09:50 ~ 10:35", activity: "수학 소그룹 수업 (선택)", desc: "한국 수학 진도 보충 (선택 사항)" },
-                    { time: "10:45 ~ 11:30", activity: "스페셜 팝송 그룹 수업", desc: "노래로 배우는 즐거운 영어" },
-                    { time: "11:50 ~ 12:25", activity: "도서관 자율학습", desc: "조용한 면학 분위기 속 예습/복습" },
-                    { time: "12:25 ~ 13:25", activity: "점심식사 및 쉬는 시간", desc: "한식 위주의 식단 제공" },
-                    { time: "13:25 ~ 14:10", activity: "오후 1:1 수업 진행", desc: "개인별 맞춤 심화 학습" },
-                    { time: "14:20 ~ 15:05", activity: "그룹 토론 수업", desc: "주제를 가지고 영어로 토론하기" },
-                    { time: "15:25 ~ 17:05", activity: "오후 1:1 수업 (연속)", desc: "부족한 영역 집중 케어" },
-                    { time: "17:15 ~ 18:00", activity: "쉬는 시간", desc: "휴식 및 개인 정비" },
-                    { time: "19:00 ~ 19:50", activity: "어휘 암기 및 테스트", desc: "매일 필수 단어 암기 확인" },
-                    { time: "20:00 ~ 20:30", activity: "생활회화 통문장 암기", desc: "실제 회화에 쓰이는 문장 통암기" },
-                    { time: "20:30 ~ 21:00", activity: "영어 도서 읽기", desc: "원서 읽기를 통한 독해력 향상" }
+                title: "바기오 CNS 어학원 주간 일정 (학습 집중형)",
+                headerColor: "text-green-800",
+                rows: [
+                    { time: "07:00 ~ 08:00", lesson: "Morning", weekday: "기상, 아침체조, 아침식사, 세면", weekend: "휴식" },
+                    { time: "08:00 ~ 08:45", lesson: "1교시", weekday: "일대일 수업 진행", weekend: "기상, 아침식사" },
+                    { time: "08:55 ~ 09:40", lesson: "2교시", weekday: "일대일 수업 진행", weekend: "야외 액티비티 / 수학 보충" },
+                    { time: "09:50 ~ 10:35", lesson: "3교시", weekday: "수학 소그룹 수업 진행(선택)", weekend: "야외 액티비티 / 종교활동" },
+                    { time: "10:45 ~ 11:30", lesson: "4교시", weekday: "스페셜 팝송 그룹 수업", weekend: "야외 액티비티 / 휴식" },
+                    { time: "11:50 ~ 12:25", lesson: "자율학습", weekday: "도서관 자율학습", weekend: "야외 액티비티" },
+                    { time: "12:25 ~ 13:25", lesson: "Lunch", weekday: "점심식사, 쉬는 시간", weekend: "점심식사" },
+                    { time: "13:25 ~ 14:10", lesson: "5교시", weekday: "일대일 수업 진행", weekend: "휴식" },
+                    { time: "14:20 ~ 15:05", lesson: "6교시", weekday: "그룹 토론 수업 진행", weekend: "통문장 암기, 총 테스트" },
+                    { time: "15:25 ~ 16:10", lesson: "7교시", weekday: "일대일 수업 진행", weekend: "영어독서, 수학 보충 / SM몰 쇼핑" },
+                    { time: "16:20 ~ 17:05", lesson: "8교시", weekday: "일대일 수업 진행", weekend: "SM몰 쇼핑 / 휴식" },
+                    { time: "17:15 ~ 18:00", lesson: "Break", weekday: "쉬는시간", weekend: "휴식" },
+                    { time: "18:00 ~ 19:00", lesson: "Dinner", weekday: "저녁식사, 쉬는 시간(부모님과 통화)", weekend: "저녁식사" },
+                    { time: "19:00 ~ 19:50", lesson: "Night 1", weekday: "어휘암기 및 테스트", weekend: "영화 감상" },
+                    { time: "20:00 ~ 20:30", lesson: "Night 2", weekday: "생활회화 통문장 암기 및 테스트", weekend: "영화 감상" },
+                    { time: "20:30 ~ 21:00", lesson: "Reading", weekday: "영어도서 읽기", weekend: "영화 감상" },
+                    { time: "21:00 ~", lesson: "Sleep", weekday: "점호준비, 위생관리, 취침", weekend: "점호준비, 위생관리, 취침" }
                 ]
             }
         };
 
-        // Switch Schedule Function
+        // Switch Schedule Function (Table Version)
         function switchSchedule(type) {
-            const container = document.getElementById('schedule-timeline');
+            const tableBody = document.getElementById('schedule-body');
             const title = document.getElementById('schedule-title');
             const btnCebu = document.getElementById('btn-cebu');
             const btnBaguio = document.getElementById('btn-baguio');
@@ -499,27 +741,52 @@
                 btnCebu.className = "option-btn px-6 py-3 rounded-full bg-white border-2 border-slate-300 text-slate-500 font-bold text-lg hover:border-sky-500 hover:text-sky-600 flex items-center gap-2";
             }
 
-            // Update Content
+            // Update Title
             title.innerText = data.title;
+            title.className = `text-xl md:text-2xl font-bold ${data.headerColor}`;
+
+            // Update Table Content
             let html = '';
             
-            data.items.forEach((item, index) => {
-                const isLast = index === data.items.length - 1;
+            data.rows.forEach(row => {
+                // Determine row background for differentiation
+                const isBreak = row.lesson.includes('Lunch') || row.lesson.includes('Dinner') || row.lesson.includes('Sleep');
+                const rowClass = isBreak ? 'bg-orange-50 font-medium' : 'border-b hover:bg-slate-50';
+                
                 html += `
-                <div class="timeline-item relative pl-8 pb-8 ${isLast ? 'pb-0' : ''}">
-                    <div class="absolute left-0 top-0 mt-1.5 w-6 h-6 rounded-full bg-white border-4 ${type === 'cebu' ? 'border-sky-500' : 'border-green-500'} shadow-sm z-10"></div>
-                    <div class="flex flex-col sm:flex-row sm:items-center mb-1">
-                        <span class="${data.colorClass} text-xs font-bold px-2 py-1 rounded inline-block mb-1 sm:mb-0 sm:mr-3 w-fit">
-                            ${item.time}
-                        </span>
-                        <h4 class="font-bold text-slate-800 text-lg">${item.activity}</h4>
-                    </div>
-                    <p class="text-slate-600 text-sm pl-0 sm:pl-[100px]">${item.desc}</p>
-                </div>
+                <tr class="${rowClass}">
+                    <td class="p-4 border-r border-slate-100 font-mono text-xs md:text-sm text-slate-500">${row.time}</td>
+                    <td class="p-4 border-r border-slate-100 font-bold text-slate-700">${row.lesson}</td>
+                    <td class="p-4 border-r border-slate-100">${row.weekday}</td>
+                    <td class="p-4 bg-slate-50/50 text-slate-600">${row.weekend}</td>
+                </tr>
                 `;
             });
 
-            container.innerHTML = html;
+            tableBody.innerHTML = html;
+        }
+
+        // Academy Tab Switcher
+        function showAcademy(type) {
+            const contentCNS = document.getElementById('content-cns');
+            const contentCELLA = document.getElementById('content-cella');
+            const tabs = document.querySelectorAll('.academy-tab');
+
+            if(type === 'cns') {
+                contentCNS.classList.remove('hidden');
+                contentCELLA.classList.add('hidden');
+                tabs[0].classList.add('active', 'text-green-700', 'border-green-600');
+                tabs[0].classList.remove('text-slate-500');
+                tabs[1].classList.remove('active', 'text-sky-700', 'border-sky-600');
+                tabs[1].classList.add('text-slate-500');
+            } else {
+                contentCNS.classList.add('hidden');
+                contentCELLA.classList.remove('hidden');
+                tabs[1].classList.add('active', 'text-sky-700', 'border-sky-600');
+                tabs[1].classList.remove('text-slate-500');
+                tabs[0].classList.remove('active', 'text-green-700', 'border-green-600');
+                tabs[0].classList.add('text-slate-500');
+            }
         }
 
         // Video Play Logic
