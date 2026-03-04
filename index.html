@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-JLH9GD9SVR');
     </script>
     <!-- // Google Analytics 끝 -->
@@ -18,7 +17,8 @@
     <!-- 🌟 카카오톡/SNS 공유 시 보여질 썸네일 및 정보 설정 (Open Graph) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="2026 통리초등학교 글로벌 영어 캠프 제안서 (통합안)">
-    <meta property="og:description" content="6박 8일 전체 로드맵 및 어학원 상세 정보 (바기오 CNS vs 세부 CELLA)">
+    <meta property="og:description" content="6박 8일 전체 로드맵 및 어학원 상세 정보 (바기오 CNS vs 세부 CELLA) | 투어메이커 T-safe24 안전망 적용">
+    <!-- 썸네일 이미지: 웹페이지 내 사용된 리조트 이미지로 설정 -->
     <meta property="og:image" content="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -145,7 +145,7 @@
                 
                 <!-- Mobile Menu Button (Hamburger) -->
                 <div class="md:hidden">
-                    <a href="#mynote" class="text-yellow-600 font-bold text-sm mr-2"><i class="fa-solid fa-pen-to-square"></i> MY노트</a>
+                    <a href="#safety" class="text-red-600 font-bold text-sm mr-2"><i class="fa-solid fa-shield-halved"></i> 안전망</a>
                 </div>
 
                 <!-- Desktop Nav -->
@@ -156,7 +156,9 @@
                         <a href="#academies"   class="nav-link px-3 py-2 border-b-2 border-transparent">어학원소개</a>
                         <a href="#curriculum"  class="nav-link px-3 py-2 border-b-2 border-transparent">상세시간표</a>
                         <a href="#video"       class="nav-link px-3 py-2 border-b-2 border-transparent">현지영상</a>
-                        <a href="#mynote"      class="nav-link px-3 py-2 border-b-2 border-transparent text-yellow-600 font-bold"><i class="fa-solid fa-pen-to-square"></i> MY 노트</a>
+                        <!-- [NEW] 안전/비상망 추가 -->
+                        <a href="#safety"      class="nav-link px-3 py-2 border-b-2 border-transparent text-red-600 font-bold"><i class="fa-solid fa-shield-halved"></i> 안전/비상망</a>
+                        <a href="#mynote"      class="nav-link px-3 py-2 border-b-2 border-transparent text-yellow-600 font-bold"><i class="fa-solid fa-pen-to-square"></i> 노트</a>
                     </div>
                 </div>
             </div>
@@ -169,7 +171,8 @@
                 <a href="#academies" class="block">어학원</a>
                 <a href="#curriculum" class="block">시간표</a>
                 <a href="#video" class="block">영상</a>
-                <a href="#mynote" class="block text-yellow-600 font-bold">★MY노트</a>
+                <a href="#safety" class="block text-red-600 font-bold">★안전망</a>
+                <a href="#mynote" class="block text-yellow-600 font-bold">MY노트</a>
             </div>
         </div>
     </header>
@@ -192,13 +195,6 @@
                     Which Way Will You Go?<br>
                     <span class="text-yellow-300">최적의 학습 환경을 선택하세요</span>
                 </h1>
-                
-                <div class="mt-4 max-w-4xl mx-auto bg-slate-900/60 backdrop-blur-sm p-6 rounded-xl border border-slate-700">
-                    <p class="text-lg text-slate-200">
-                        학교의 니즈를 분석하여 두 가지 최적의 대안을 준비했습니다.<br>
-                        <strong class="text-green-400">Option A: 학습 집중형 (바기오)</strong> vs <strong class="text-sky-300">Option B: 밸런스형 (세부)</strong>
-                    </p>
-                </div>
                 
                 <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4 text-lg font-bold">
                     <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-lg">
@@ -286,8 +282,8 @@
             </div>
         </section>
 
-        <!-- [NEW] One-Glance Weekly Overview -->
-        <section id="overview" class="py-20 bg-slate-50">
+        <!-- One-Glance Weekly Overview -->
+        <section id="overview" class="py-20 bg-slate-50 border-t">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <span class="text-indigo-600 font-bold tracking-wider uppercase">6 Nights 8 Days Roadmap</span>
@@ -362,7 +358,7 @@
                                     <li>• 공항 이동 및 수속</li>
                                     <li>• 인천공항 도착</li>
                                     <li>• 귀가 후 휴식</li>
-                                    <li>• 월요일 등교 준비 완료</li>
+                                    <li>• 주말 휴식 후 월요일 등교</li>
                                 </ul>
                             </div>
                         </div>
@@ -372,7 +368,7 @@
             </div>
         </section>
 
-        <!-- [NEW] Academy Introduction Section -->
+        <!-- Academy Introduction Section -->
         <section id="academies" class="py-20 bg-white border-t">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
@@ -422,7 +418,6 @@
                                 </div>
                             </div>
                             <div class="space-y-4">
-                                <!-- UPDATED IMAGE: Baguio -->
                                 <img src="https://tse4.mm.bing.net/th/id/OIP.Nb9iHS85TW3M7jsR8uwgswHaFj?w=474&h=379&c=7&p=0" alt="Baguio View" class="rounded-xl shadow-md w-full h-48 object-cover">
                                 <div class="bg-green-50 p-4 rounded-lg border border-green-200">
                                     <h4 class="font-bold text-green-800 mb-1">📢 바기오 교육 도시 특징</h4>
@@ -465,7 +460,6 @@
                                 </div>
                             </div>
                             <div class="space-y-4">
-                                <!-- UPDATED IMAGE: Cebu -->
                                 <img src="https://tse1.mm.bing.net/th/id/OIP.vd8S48rKv2xLgyKDNG8eAwHaEc?w=474&h=379&c=7&p=0" alt="Cebu Resort View" class="rounded-xl shadow-md w-full h-48 object-cover">
                                 <div class="bg-sky-50 p-4 rounded-lg border border-sky-200">
                                     <h4 class="font-bold text-sky-800 mb-1">📢 CELLA 추천 포인트</h4>
@@ -484,8 +478,8 @@
             </div>
         </section>
 
-        <!-- Dynamic Weekly Schedule Section (UPDATED) -->
-        <section id="curriculum" class="py-20 bg-slate-50">
+        <!-- Dynamic Weekly Schedule Section -->
+        <section id="curriculum" class="py-20 bg-slate-50 border-t">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-10">
                     <span class="text-blue-600 font-bold tracking-wider uppercase">Detail Schedule</span>
@@ -498,7 +492,7 @@
                     <button onclick="switchSchedule('baguio')" id="btn-baguio" class="option-btn px-6 py-3 rounded-full bg-white border-2 border-slate-300 text-slate-500 font-bold text-lg hover:border-green-500 hover:text-green-600 flex items-center gap-2">
                         <i class="fa-solid fa-tree"></i> Option A: 바기오 CNS
                     </button>
-                    <button onclick="switchSchedule('cebu')" id="btn-cebu" class="option-btn px-6 py-3 rounded-full bg-sky-600 border-2 border-sky-600 text-white font-bold text-lg shadow-lg flex items-center gap-2">
+                    <button onclick="switchSchedule('cebu')" id="btn-cebu" class="option-btn px-6 py-3 rounded-full bg-sky-600 border-2 border-sky-600 text-white font-bold text-lg shadow-lg flex items-center gap-2 active">
                         <i class="fa-solid fa-water"></i> Option B: 세부 CELLA
                     </button>
                 </div>
@@ -509,11 +503,10 @@
                         <i class="fa-solid fa-circle-info"></i>
                     </div>
                     <div>
-                        <h4 class="font-bold text-sky-800 text-sm md:text-base">맞춤형 일정 안내</h4>
+                        <h4 class="font-bold text-sky-800 text-sm md:text-base">맞춤형 일정 안내 및 학부모 안심 리포트</h4>
                         <p class="text-slate-700 text-xs md:text-sm mt-1 leading-relaxed">
-                            본 일정은 제안용 초안입니다. 학교 및 학부모님, 학생들의 요청사항을 수렴하여 
-                            <strong class="bg-yellow-200 px-1 rounded">액티비티 추가 및 문화 체험 확대</strong> 등 원하시는 방향을 
-                            <strong class="text-sky-700">현지 사정에 맞춰 최대한 반영</strong>하여 진행하겠습니다.
+                            본 일정은 제안용 초안입니다. 통리초등학교와 학부모님의 요청을 수렴하여 <strong class="bg-yellow-200 px-1 rounded">액티비티 추가 및 문화 체험 확대</strong> 등을 유연하게 반영하겠습니다.<br>
+                            또한, 매일 일정이 끝난 후 학부모님들께 아이들의 생생한 학습 및 활동 모습을 <strong class="text-sky-700">데일리 안심 리포트(사진/영상)</strong> 형태로 전송해 드립니다.
                         </p>
                     </div>
                 </div>
@@ -524,7 +517,7 @@
                         <h3 id="schedule-title" class="text-xl md:text-2xl font-bold text-slate-800">
                             세부 CELLA 주간 스케줄
                         </h3>
-                        <span class="text-xs text-slate-500 bg-white px-2 py-1 rounded border">* 모바일에서는 좌우로 스크롤하여 확인하세요</span>
+                        <span class="text-xs text-slate-500 bg-white px-2 py-1 rounded border">* 모바일에서는 좌우로 스크롤</span>
                     </div>
                     
                     <!-- Scrollable Table Wrapper -->
@@ -594,12 +587,11 @@
         </section>
 
         <!-- Personal Assistant Section (Checklist & Memo) -->
-        <section id="mynote" class="py-20 bg-slate-50">
+        <section id="mynote" class="py-20 bg-slate-50 border-t">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-4"><i class="fa-solid fa-suitcase-rolling text-sky-600"></i> 스마트 준비물 체크</h2>
                 
                 <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-                    
                     <!-- 1. Smart Checklist -->
                     <div id="checklist" class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
                         <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
@@ -631,7 +623,49 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- [NEW] Emergency & Safety Section (T-safe24 단독 강조) -->
+        <section id="safety" class="py-20 bg-white border-t">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2">🚨 긴급상황 발생 시 대처방안</h2>
+                    <p class="text-slate-500 mt-3 font-medium">안전사고 및 긴급 상황에 대비한 행동 요령을 반드시 숙지해 주세요.</p>
+                </div>
+                
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-red-50 p-8 md:p-12 rounded-[2.5rem] border border-red-100 shadow-xl relative overflow-hidden text-center group">
+                        <div class="absolute -right-10 -top-10 text-red-100/50 text-[150px] z-0 pointer-events-none transition-transform duration-500 group-hover:scale-110">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="inline-block bg-red-600 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-6 shadow-sm tracking-widest">
+                                투어메이커 독자 기술
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-black mb-4 text-slate-900">투어메이커 안전 매뉴얼 (T-safe24)</h3>
+                            <p class="text-base md:text-lg text-slate-700 mb-8 leading-relaxed">
+                                사용자 실행형 긴급지원 시스템으로,<br class="hidden md:block"> 현장에서 즉각적으로 활용할 수 있는 안전 매뉴얼입니다.
+                            </p>
+                            
+                            <div class="inline-block text-left bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-red-50 mb-8 w-full max-w-lg">
+                                <ul class="text-sm md:text-base text-slate-800 space-y-4 font-bold">
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-red-600 mr-4 text-lg"></i>위치 기반 긴급 지원 (인근 병원/경찰서 탐색)</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-red-600 mr-4 text-lg"></i>사용자 요청형 SOS 위치 전송</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-red-600 mr-4 text-lg"></i>긴급 상황 대응용 위치 공유 시스템</li>
+                                </ul>
+                            </div>
+                            
+                            <p class="text-[11px] md:text-xs text-slate-500 mb-8 font-medium">
+                                ※ 본 시스템은 상시 자동 추적(관제)이 아닌, 필요 시 사용자의 실행으로 구동되는 안심 보조 도구입니다.
+                            </p>
+                            
+                            <a href="https://indadady.github.io/T-safe24/" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-red-600 hover:bg-red-700 text-white font-black py-4 px-10 rounded-xl transition-all shadow-lg text-lg transform hover:-translate-y-1">
+                                매뉴얼 확인하기 <i class="fa-solid fa-arrow-up-right-from-square ml-3"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
